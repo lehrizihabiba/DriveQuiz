@@ -1,5 +1,5 @@
  
-// Normalize VITE_API_BASE_URL so malformed values like ":5000/api" still work
+// Normalize VITE_API_BASE_URL so malformed values like ":5006/api" still work
 function normalizeApiBase(raw) {
   let val = raw || '';
 
