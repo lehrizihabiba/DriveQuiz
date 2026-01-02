@@ -22,16 +22,25 @@ const PORT = process.env.PORT || 5000;
 // CORS - allow explicit FRONTEND_URL or any localhost/127.0.0.1 origin (any port) in dev
 const explicitFrontend = process.env.FRONTEND_URL;
 const localhostRegex = /^https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/;
+const isProduction = process.env.NODE_ENV === 'production';
 
 app.use(cors({
   origin: (origin, cb) => {
     // allow non-browser tools like curl (no origin)
     if (!origin) return cb(null, true);
 
-    // allow explicit frontend origin if provided
+    // In production, only allow explicit frontend URL
+    if (isProduction) {
+      if (explicitFrontend && origin === explicitFrontend) {
+        return cb(null, true);
+      }
+      return cb(new Error('Not allowed by CORS'));
+    }
+
+    // In development, allow explicit frontend origin if provided
     if (explicitFrontend && origin === explicitFrontend) return cb(null, true);
 
-    // allow any localhost or 127.0.0.1 origin (any port)
+    // allow any localhost or 127.0.0.1 origin (any port) in dev
     if (localhostRegex.test(origin)) return cb(null, true);
 
     return cb(new Error('Not allowed by CORS'));
@@ -43,14 +52,34 @@ app.use(express.static('public')); // Serve images from public folder
 
 // Session configuration
 app.use(session({
-  secret: 'drivequiz-secret-key-2024',
+  secret: process.env.SESSION_SECRET || 'drivequiz-secret-key-2024',
   resave: false,
   saveUninitialized: false,
   cookie: { 
-    secure: false, // Set to true in production with HTTPS
-    maxAge: 24 * 60 * 60 * 1000 // 24 hours
+    secure: process.env.NODE_ENV === 'production', // Use secure cookies in production (HTTPS)
+    maxAge: 24 * 60 * 60 * 1000, // 24 hours
+    sameSite: 'none' // Required for cross-origin requests
   }
 }));
+
+// Root route - fixes "Cannot GET /" error
+app.get('/', (req, res) => {
+  res.json({ 
+    message: 'DriveQuiz API Server is running',
+    status: 'ok',
+    endpoints: {
+      auth: '/api/auth',
+      questions: '/api/questions',
+      quiz: '/api/quiz',
+      user: '/api/user'
+    }
+  });
+});
+
+// Health check endpoint for Render
+app.get('/health', (req, res) => {
+  res.json({ status: 'ok', timestamp: new Date().toISOString() });
+});
 
 // Database connection
 const db = new sqlite3.Database('./drivequiz.db', (err) => {
@@ -472,13 +501,6 @@ app.post('/api/user/flashcards/remove', (req, res) => {
   const { phaseId, questionId } = req.body;
   if (!phaseId || !questionId) return res.status(400).json({ error: 'Missing parameters' });
 
-  if (!sqliteAvailable) {
-    const before = fallbackDB.flashcards.length;
-    fallbackDB.flashcards = fallbackDB.flashcards.filter(f => !(f.user_id === req.session.userId && f.phase_id === phaseId && f.question_id === questionId));
-    saveFallbackDB();
-    return res.json({ removed: before - fallbackDB.flashcards.length });
-  }
-
   db.run(
     `DELETE FROM flashcards WHERE user_id = ? AND phase_id = ? AND question_id = ?`,
     [req.session.userId, phaseId, questionId],
@@ -577,29 +599,7 @@ app.get('/api/user/stats', (req, res) => {
   );
 });
 
-// Start server with automatic port fallback (tries next ports if in use)
-function startServer(port, maxAttempts = 50) {
-  const server = app.listen(port, () => {
-    console.log(` Server running on http://localhost:${port}`);
-  });
-
-  server.on('error', (err) => {
-    if (err && err.code === 'EADDRINUSE' && maxAttempts > 0) {
-      console.warn(`Port ${port} in use, trying ${port + 1}...`);
-      // wait briefly before retrying to avoid busy loop
-      setTimeout(() => startServer(port + 1, maxAttempts - 1), 200);
-    } else {
-      console.error('Failed to start server:', err);
-      process.exit(1);
-    }
-  });
-}
-
-startServer(Number(PORT), 100);
-
  
- 
-
 // Get questions from JSON file
 app.get('/api/questions/json/phase/:phaseId', (req, res) => {
   const phaseId = parseInt(req.params.phaseId);
@@ -711,3 +711,24 @@ app.post('/api/quiz/submit-json', (req, res) => {
     res.status(500).json({ error: 'Error processing quiz submission' });
   }
 });
+
+// Start server with automatic port fallback (tries next ports if in use)
+function startServer(port, maxAttempts = 50) {
+  const server = app.listen(port, () => {
+    console.log(` Server running on http://localhost:${port}`);
+  });
+
+  server.on('error', (err) => {
+    if (err && err.code === 'EADDRINUSE' && maxAttempts > 0) {
+      console.warn(`Port ${port} in use, trying ${port + 1}...`);
+      // wait briefly before retrying to avoid busy loop
+      setTimeout(() => startServer(port + 1, maxAttempts - 1), 200);
+    } else {
+      console.error('Failed to start server:', err);
+      process.exit(1);
+    }
+  });
+}
+
+startServer(Number(PORT), 100);
+
