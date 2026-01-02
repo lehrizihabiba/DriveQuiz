@@ -1,0 +1,240 @@
+[
+  {
+    "id": 1,
+    "phase_id": 1,
+    "question": "سائل التبريد في هذه السيارة كافي؟",
+    "choices": [
+      "نعم",
+      "لا"
+    ],
+    "correct_answer": "نعم",
+    "image":"/images/phase4/coolant-level-check.jpg"
+  },
+  {
+    "id": 2,
+    "phase_id": 1,
+    "question": "تستهلك العجلات وقود أكثر إذا كانت منفوخة بقدر كبير أو غير منفوخة جيداً؟",
+    "choices": [
+      "إذا كانت منفوخة بقدر كبير",
+      "إذا كانت غير منفوخة جيداً"
+    ],
+    "correct_answer": "إذا كانت غير منفوخة جيداً",
+    "image":"/images/phase4/tire-pressure-fuel.jpg"
+  },
+  {
+    "id": 3,
+    "phase_id": 1,
+    "question": "أقراص وصفائح الفرملة يتم تغييرها دائماً مع بعض؟",
+    "choices": [
+      "صحيح",
+      "خطأ"
+    ],
+    "correct_answer": "خطأ",
+    "image":"/images/phase4/brake-pads-discss.jpg"
+  },
+  {
+    "id": 4,
+    "phase_id": 1,
+    "question": "الجهاز المشار إليه أعلاه (على اليمين) يمكن من:",
+    "choices": [
+      "تشغيل أضواء التقابل",
+      "ضبط علو شعاع الأضواء",
+      "ضبط شدة إضاءة لوحة القيادة"
+    ],
+    "correct_answer": "تشغيل أضواء التقابل",
+    "image":"/images/phase4/dashboard-lights-switch.jpg"
+  },
+  {
+    "id": 5,
+    "phase_id": 2,
+    "question": "الرقم الذي يشير إلى مكان وضع زيت المحرك هو؟",
+    "choices": [
+      "الرقم 1",
+      "الرقم 2",
+      "الرقم 3",
+      "الرقم 4"
+    ],
+    "correct_answer": "الرقم 1",
+    "image":"/images/phase4/oil-fill-cap.jpg"
+  },
+  {
+    "id": 6,
+    "phase_id": 2,
+    "question": "العمر الافتراضي لزيت المحرك هو؟",
+    "choices": [
+      "10000 كيلومتر",
+      "15000 كيلومتر",
+      "30000 كيلومتر"
+    ],
+    "correct_answer": "10000 كيلومتر",
+    "image":"/images/phase4/oil-change-interval.jpg"
+  },
+  {
+    "id": 7,
+    "phase_id": 2,
+    "question": "لقياس ضغط العجلات يفضل أن تكون باردة؟",
+    "choices": [
+      "صحيح",
+      "خطأ"
+    ],
+    "correct_answer": "صحيح",
+    "image":"/images/phase4/tire-cold-pressure.jpg"
+  },
+  {
+    "id": 8,
+    "phase_id": 2,
+    "question": "مقياس سائل الفرامل في هذه السيارة؟",
+    "choices": [
+      "كافي",
+      "غير كافي"
+    ],
+    "correct_answer": "كافي",
+    "image":"/images/phase4/brake-fluid-gauge.jpg"
+  },
+  {
+    "id": 9,
+    "phase_id": 2,
+    "question": "تجهيزات السلامة الإجبارية داخل السيارة هي؟",
+    "choices": [
+      "مثلث التنبيه العاكس",
+      "مطفأة الحريق",
+      "مصباح الجيب",
+      "عجلة الإغاثة"
+    ],
+    "correct_answer": "مثلث التنبيه العاكس",
+    "image":"/images/phase4/car-safety-kit.jpg"
+  },
+  {
+    "id": 10,
+    "phase_id": 2,
+    "question": "يصبح الفحص التقني إجباري على السيارات الجديدة بعد مرور؟",
+    "choices": [
+      "سنة واحدة من الاستخدام",
+      "3 سنوات من الاستخدام",
+      "5 سنوات من الاستخدام"
+    ],
+    "correct_answer": "3 سنوات من الاستخدام",
+    "image":"/images/phase4/vehicle-inspection.jpg"
+  },
+  {
+    "id": 11,
+    "phase_id": 3,
+    "question": "عند ركن السيارة في الخارج والسفر لمدة طويلة يفضل تغطية السيارة؟",
+    "choices": [
+      "صحيح",
+      "خطأ"
+    ],
+    "correct_answer": "صحيح",
+    "image":"/images/phase4/car-cover.jpg"
+  },
+  {
+    "id": 12,
+    "phase_id": 3,
+    "question": "مدة الفحص التكميلي لإصلاح المركبة هو؟",
+    "choices": [
+      "شهر واحد",
+      "شهرين",
+      "3 أشهر"
+    ],
+    "correct_answer": "شهر واحد",
+    "image":"/images/phase4/repair-followup.jpg"
+  },
+  {
+    "id": 13,
+    "phase_id": 3,
+    "question": "يتم تغيير ماسحات الزجاج عند؟",
+    "choices": [
+      "نهاية فصل الشتاء",
+      "بداية فصل الخريف",
+      "عندما تترك آثار على الزجاج"
+    ],
+    "correct_answer": "عندما تترك آثار على الزجاج",
+    "image":"/images/phase4/R.jpg"
+  },
+  {
+    "id": 14,
+    "phase_id": 3,
+    "question": "هذا الجهاز يمكن من:",
+    "choices": [
+      "تشغيل أضواء السيارة",
+      "تشغيل المنبه الصوتي",
+      "تشغيل وضبط مثبت السرعة",
+      "تشغيل ماسحات الزجاج"
+    ],
+    "correct_answer": "تشغيل وضبط مثبت السرعة",
+    "image":"/images/phase4/cruise-control-switch.jpg"
+  },
+  {
+    "id": 15,
+    "phase_id": 3,
+    "question": "جودة زيت المحرك في هذه السيارة؟",
+    "choices": [
+      "جيدة",
+      "سيئة",
+      "تحتاج إلى تغيير"
+    ],
+    "correct_answer": "جيدة",
+    "image":"/images/phase4/oil-quality-check.jpg"
+  },
+  {
+    "id": 16,
+    "phase_id": 4,
+    "question": "عند ظهور ضوء البطارية في الطابلو، ماذا يعني؟",
+    "choices": [
+      "هناك مشكلة في نظام الشحن أو البطارية",
+      "انتهى وقود السيارة",
+      "ضغط الإطارات منخفض"
+    ],
+    "correct_answer": "هناك مشكلة في نظام الشحن أو البطارية",
+    "image":"/images/phase4/battery-dashboard-light.jpg"
+  },
+  {
+    "id": 17,
+    "phase_id": 4,
+    "question": "إذا ارتفع مؤشر حرارة المحرك، ما الإجراء الصحيح؟",
+    "choices": [
+      "قيادة السيارة بسرعة أكبر",
+      "إيقاف السيارة وفحص الرادياتير ونظام التبريد",
+      "تشغيل الراديو"
+    ],
+    "correct_answer": "إيقاف السيارة وفحص الرادياتير ونظام التبريد",
+    "image":"/images/phase4/engine-temperature-gauge.jpg"
+  },
+  {
+    "id": 18,
+    "phase_id": 4,
+    "question": "ماذا يعني إضاءة لمبة الزيت الحمراء في الطابلو؟",
+    "choices": [
+      "ضغط الزيت منخفض جداً ويجب الفحص فوراً",
+      "خزان الوقود ممتلئ",
+      "تم غسل السيارة"
+    ],
+    "correct_answer": "ضغط الزيت منخفض جداً ويجب الفحص فوراً",
+    "image":"/images/phase4/oil-pressure-light.jpg"
+  },
+   {
+  "id": 19,
+  "phase_id": 4,
+  "question": "متى يجب تغيير فلتر الهواء؟",
+  "choices": [
+    "عند تراجُع أداء المحرك أو زيادة استهلاك الوقود",
+    "كل أسبوع",
+    "عندما تتوقف المروحة"
+  ],
+  "correct_answer": "عند تراجُع أداء المحرك أو زيادة استهلاك الوقود",
+  "image": "/images/phase4/air-filter-check.jpg"
+}
+,
+  {
+    "id": 20,
+    "phase_id": 4,
+    "question": "أين يوجد صندوق الفيوزات غالباً في السيارة؟",
+    "choices": [
+      "تحت الطابلوه أو في حجرة المحرك",
+      "خلف العجلة الأمامية",
+      "في صندوق السيارة الخلفي"
+    ],
+    "correct_answer": "تحت الطابلوه أو في حجرة المحرك",
+    "image":"/images/phase4/fuse-box-location.jpg"
+  }
+]

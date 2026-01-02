@@ -1,0 +1,15 @@
+ { //page 1 and 5  from book 1-8 ( 1 , 3 , 5 ,8 )
+  "id": <unique_integer>,           // Unique question 
+  "phase_id": <phase_number>,       // Phase number (1 to 6)
+  "question": "<Question text>",    // The quiz question as a string
+  "choices": [
+    "<Option 1>",
+    "<Option 2>",
+    "<Option 3>",
+    "<Option 4>"                   // Optional, can have 3 or 4 choices
+                                   // if options are  images , put them in one image and put 
+                                   //the choices as number or char  , ( a:img1, b:img2.....and the options are a, b ....as IN OR quiz )
+  ],
+  "correct_answer": "<Correct option>",  // Must match exactly one choice
+  "image": "<path>"              // Optional, "" if no image : i choose using local path in image because it is small project does not need hosting image service
+}
